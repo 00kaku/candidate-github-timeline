@@ -1,10 +1,13 @@
-name: Candidate Test Execution
+name: Run Candidate Tests
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
-  run-tests:
+  test:
     uses: 00kaku/github-timeline-test-suite/.github/workflows/test-runner.yml@main
+    with:
+      candidate_repo: "owner/candidate-github-timeline"
